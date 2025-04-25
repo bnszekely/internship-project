@@ -11,5 +11,6 @@ class MainPage(Page):
         self.open_url(self.base_url)
 
     def click_settings_icon(self):
+        self.wait_until_clickable(*SETTINGS_ICON)
         self.find_element(*SETTINGS_ICON).click()
 

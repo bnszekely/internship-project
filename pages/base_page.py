@@ -72,9 +72,9 @@ class Page:
         self.wait.until(EC.url_to_be(expected_url), message=f'URL does not match {expected_url}')
 
     def verify_partial_url(self, expected_partial_url):
-        # current_url = self.driver.current_url
-        # print(f'Current url {current_url}')
-        # assert expected_partial_url in current_url, f'Expected text {expected_partial_url} not in {current_url}'
+        current_url = self.driver.current_url
+        print(f'Current url {current_url}')
+        assert expected_partial_url in current_url, f'Expected text {expected_partial_url} not in {current_url}'
         self.wait.until(EC.url_contains(expected_partial_url), message=f'URL does not contain {expected_partial_url}')
 
     def close(self):

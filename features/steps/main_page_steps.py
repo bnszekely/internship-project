@@ -12,3 +12,4 @@ def open_main_page(context):
 @when('Click on the settings icon')
 def click_settings_icon(context):
     context.app.main_page.click_settings_icon()
+    sleep(1)
