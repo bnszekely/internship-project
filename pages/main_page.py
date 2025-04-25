@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from pages.base_page import Page
 
 
+LOG_IN_BTN = (By.XPATH, "//div[contains(text(),'Log in')]")
 SETTINGS_ICON = (By.XPATH, "//div[@class='settings-code w-embed']")
 
 class MainPage(Page):
@@ -11,3 +12,4 @@ class MainPage(Page):
 
     def click_settings_icon(self):
         self.find_element(*SETTINGS_ICON).click()
+
