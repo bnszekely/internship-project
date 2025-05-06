@@ -18,12 +18,14 @@ def browser_init(context, scenario_name):
     """
 
 
-
-
     driver_path = ChromeDriverManager().install()
     service = Service(driver_path)
     context.driver = webdriver.Chrome(service=service)
 
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", {"deviceName": "Nexus 5"})
+
+    context.driver = webdriver.Chrome(service=service, options=chrome_options)
 
     #driver_path = GeckoDriverManager().install()
     #service = Service(driver_path)
@@ -59,6 +61,8 @@ def browser_init(context, scenario_name):
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
     context.driver.wait = WebDriverWait(context.driver, timeout=10)
+
+
     context.app = Application(context.driver)
     from pages.sign_in_page import SignInPage
     context.sign_in_page = SignInPage(context.driver)

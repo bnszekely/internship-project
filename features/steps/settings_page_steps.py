@@ -6,3 +6,4 @@ from time import sleep
 @when('Click on Contact us option')
 def click_on_contact_us_btn(context):
     context.app.settings_page.click_contact_us_btn()
+    sleep(1)
